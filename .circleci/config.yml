@@ -5,8 +5,11 @@ jobs:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: ccmake . 
-      - run: make
+      - run: mkdir Debug
+      - run: cd Debug
+      - run: cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
+      - run: cmake --build . # make
+
 workflows:
   version: 2
   one_and_two:
