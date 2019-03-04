@@ -16,7 +16,9 @@ set(BIN_DIR ${SDL_cmake_template_SOURCE_DIR}/bin)
 # This is because find command doesn't include any path for Windows.
 # So it can't find anything using default paths.
 # SDL2_PATH is already expected in module file. I'm using the same variable.
-set(SDL2_PATH "D:/CodeLibraries/SDL2/SDL2-2.0.9")
+IF (WIN32)
+  set(SDL2_PATH "D:/CodeLibraries/SDL2/SDL2-2.0.9")
+ENDIF()
 
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
